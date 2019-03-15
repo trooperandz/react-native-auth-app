@@ -7,29 +7,44 @@ class LoginForm extends Component {
     super(props);
 
     this.state = {
-      text: '',
+      email: '',
+      password: '',
     };
 
-    this.onChangeText = this.onChangeText.bind(this);
+    this.onChangeEmail = this.onChangeEmail.bind(this);
+    this.onChangePassword = this.onChangePassword.bind(this);
   }
 
-  onChangeText(text) {
-    this.setState({ text });
+  onChangeEmail(email) {
+    this.setState({ email });
+  }
+
+  onChangePassword(password) {
+    this.setState({ password });
   }
 
   render() {
-    const { text } = this.state;
+    const { email, password } = this.state;
 
     return (
       <Card>
         <CardSection>
           <Input
             label='Email'
-            value={text}
-            onChangeText={this.onChangeText}
+            value={email}
+            placeholder='user@gmail.com'
+            onChangeText={this.onChangeEmail}
           />
         </CardSection>
-        <CardSection/>
+        <CardSection>
+          <Input
+            label='Password'
+            value={password}
+            placeholder='password'
+            secureTextEntry
+            onChangeText={this.onChangePassword}
+          />
+        </CardSection>
         <CardSection>
           <Button>
             Log In
